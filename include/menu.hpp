@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "Sokoban.hpp"
+#include "Arkanoid.hpp"
 #include "Tetris.hpp"
 #include "Snake.hpp"
 #include "Memory.hpp"

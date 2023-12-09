@@ -16,6 +16,7 @@ add_executable(game_jam ${SOURCES})
 list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/include" "/usr/local/include")
 
 target_include_directories(game_jam PUBLIC ${EXTRA_INCLUDES})
+target_include_directories(game_jam PUBLIC include)
 target_link_libraries(game_jam PUBLIC raylib)
 
 add_custom_command(TARGET game_jam POST_BUILD
