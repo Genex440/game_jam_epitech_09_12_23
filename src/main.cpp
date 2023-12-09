@@ -5,10 +5,11 @@
 ** main.cpp
 */
 
-#include <iostream>
-#include "entity.hpp"
+#include "game.hpp"
 
 int main(int ac, char **av) {
-    std::cout << "Hello World" << std::endl;
+    Game::Snake snake(std::make_tuple(800, 450));
+
+    snake.run();
     return 0;
 }
