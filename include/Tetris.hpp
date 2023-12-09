@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "game.hpp"
+#include "display.hpp"
 
 class Tetris {
     public:

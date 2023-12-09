@@ -5,7 +5,6 @@
 ** main.cpp
 */
 
-#include "game.hpp"
 #include "menu.hpp"
 
 int main(int ac, char **av)

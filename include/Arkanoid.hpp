@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "game.hpp"
+#include "display.hpp"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -52,7 +52,4 @@ class Arkanoid {
         Vector2 brickSize = { 0 };
         const int screenWidth = 800;
         const int screenHeight = 450;
-
-        void UpdateGame();
-        void DrawGame();
 };
