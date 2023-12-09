@@ -6,10 +6,11 @@
 */
 
 #include "game.hpp"
+#include "menu.hpp"
 
-int main(int ac, char **av) {
-    Game::Snake snake(std::make_tuple(800, 450));
-
-    snake.run();
+int main(int ac, char **av)
+{
+    Menu menu;
+    menu.run();
     return 0;
 }
