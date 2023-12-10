@@ -137,7 +137,7 @@ void Tetris::DrawGame()
             Vector2 offset;
             offset.x = screenWidth/2 - (GRID_HORIZONTAL_SIZE*SQUARE_SIZE/2) - 50;
             offset.y = screenHeight/2 - ((GRID_VERTICAL_SIZE - 1)*SQUARE_SIZE/2) + SQUARE_SIZE*2;
-            offset.y -= 50;     // NOTE: Harcoded position!
+            offset.y -= 50;
             int controller = offset.x;
             for (int j = 0; j < GRID_VERTICAL_SIZE; j++)
             {
@@ -145,20 +145,16 @@ void Tetris::DrawGame()
                 {
                     if (grid[i][j] == EMPTY)
                     {
-                        DrawLine(offset.x, offset.y, offset.x + SQUARE_SIZE, offset.y, LIGHTGRAY );
-                        DrawLine(offset.x, offset.y, offset.x, offset.y + SQUARE_SIZE, LIGHTGRAY );
-                        DrawLine(offset.x + SQUARE_SIZE, offset.y, offset.x + SQUARE_SIZE, offset.y + SQUARE_SIZE, LIGHTGRAY );
-                        DrawLine(offset.x, offset.y + SQUARE_SIZE, offset.x + SQUARE_SIZE, offset.y + SQUARE_SIZE, LIGHTGRAY );
                         offset.x += SQUARE_SIZE;
                     }
-                    else if (grid[i][j] == FULL)
+                    if (grid[i][j] == FULL)
                     {
-                        DrawRectangle(offset.x, offset.y, SQUARE_SIZE, SQUARE_SIZE, GRAY);
+                        DrawRectangle(offset.x, offset.y, SQUARE_SIZE, SQUARE_SIZE, pieceColor);
                         offset.x += SQUARE_SIZE;
                     }
                     else if (grid[i][j] == MOVING)
                     {
-                        DrawRectangle(offset.x, offset.y, SQUARE_SIZE, SQUARE_SIZE, DARKGRAY);
+                        DrawRectangle(offset.x, offset.y, SQUARE_SIZE, SQUARE_SIZE, pieceColor);
                         offset.x += SQUARE_SIZE;
                     }
                     else if (grid[i][j] == BLOCK)
@@ -192,7 +188,7 @@ void Tetris::DrawGame()
                     }
                     else if (incomingPiece[i][j] == MOVING)
                     {
-                        DrawRectangle(offset.x, offset.y, SQUARE_SIZE, SQUARE_SIZE, GRAY);
+                        DrawRectangle(offset.x, offset.y, SQUARE_SIZE, SQUARE_SIZE, pieceColor);
                         offset.x += SQUARE_SIZE;
                     }
                 }
@@ -250,13 +246,13 @@ void Tetris::GetRandompiece()
 
     switch (random)
     {
-        case 0: { incomingPiece[1][1] = MOVING; incomingPiece[2][1] = MOVING; incomingPiece[1][2] = MOVING; incomingPiece[2][2] = MOVING; } break;
-        case 1: { incomingPiece[1][0] = MOVING; incomingPiece[1][1] = MOVING; incomingPiece[1][2] = MOVING; incomingPiece[2][2] = MOVING; } break;
-        case 2: { incomingPiece[1][2] = MOVING; incomingPiece[2][0] = MOVING; incomingPiece[2][1] = MOVING; incomingPiece[2][2] = MOVING; } break;
-        case 3: { incomingPiece[0][1] = MOVING; incomingPiece[1][1] = MOVING; incomingPiece[2][1] = MOVING; incomingPiece[3][1] = MOVING; } break;
-        case 4: { incomingPiece[1][0] = MOVING; incomingPiece[1][1] = MOVING; incomingPiece[1][2] = MOVING; incomingPiece[2][1] = MOVING; } break;
-        case 5: { incomingPiece[1][1] = MOVING; incomingPiece[2][1] = MOVING; incomingPiece[2][2] = MOVING; incomingPiece[3][2] = MOVING; } break;
-        case 6: { incomingPiece[1][2] = MOVING; incomingPiece[2][2] = MOVING; incomingPiece[2][1] = MOVING; incomingPiece[3][1] = MOVING; } break;
+        case 0: { incomingPiece[1][1] = MOVING; incomingPiece[2][1] = MOVING; incomingPiece[1][2] = MOVING; incomingPiece[2][2] = MOVING; pieceColor = pieceColors[random];} break;
+        case 1: { incomingPiece[1][0] = MOVING; incomingPiece[1][1] = MOVING; incomingPiece[1][2] = MOVING; incomingPiece[2][2] = MOVING; pieceColor = pieceColors[random];} break;
+        case 2: { incomingPiece[1][2] = MOVING; incomingPiece[2][0] = MOVING; incomingPiece[2][1] = MOVING; incomingPiece[2][2] = MOVING; pieceColor = pieceColors[random];} break;
+        case 3: { incomingPiece[0][1] = MOVING; incomingPiece[1][1] = MOVING; incomingPiece[2][1] = MOVING; incomingPiece[3][1] = MOVING; pieceColor = pieceColors[random];} break;
+        case 4: { incomingPiece[1][0] = MOVING; incomingPiece[1][1] = MOVING; incomingPiece[1][2] = MOVING; incomingPiece[2][1] = MOVING; pieceColor = pieceColors[random];} break;
+        case 5: { incomingPiece[1][1] = MOVING; incomingPiece[2][1] = MOVING; incomingPiece[2][2] = MOVING; incomingPiece[3][2] = MOVING; pieceColor = pieceColors[random];} break;
+        case 6: { incomingPiece[1][2] = MOVING; incomingPiece[2][2] = MOVING; incomingPiece[2][1] = MOVING; incomingPiece[3][1] = MOVING; pieceColor = pieceColors[random];} break;
     }
 }
 

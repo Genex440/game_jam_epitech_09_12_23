@@ -65,4 +65,6 @@ class Tetris {
         int fastFallMovementCounter = 0;
         int fadeLineCounter = 0;
         int gravitySpeed = 30;
+        Color pieceColor;
+        Color pieceColors[7] = { RED, GREEN, BLUE, YELLOW, PURPLE, ORANGE, PINK };
 };

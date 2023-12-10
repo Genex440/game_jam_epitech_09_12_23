@@ -149,16 +149,13 @@ void Arkanoid::run()
         if (!gameOver)
         {
             DrawRectangle(player.position.x - player.size.x/2, player.position.y - player.size.y/2, player.size.x, player.size.y, BLACK);
-            for (int i = 0; i < player.life; i++) DrawRectangle(20 + 40*i, screenHeight - 30, 35, 10, LIGHTGRAY);
+            for (int i = 0; i < player.life; i++) DrawRectangle(20 + 40*i, screenHeight - 30, 35, 10, YELLOW);
             DrawCircleV(ball.position, ball.radius, ORANGE);
-            for (int i = 0; i < LINES_OF_BRICKS; i++)
-            {
-                for (int j = 0; j < BRICKS_PER_LINE; j++)
-                {
-                    if (brick[i][j].active)
-                    {
-                        if ((i + j) % 2 == 0) DrawRectangle(brick[i][j].position.x - brickSize.x/2, brick[i][j].position.y - brickSize.y/2, brickSize.x, brickSize.y, GRAY);
-                        else DrawRectangle(brick[i][j].position.x - brickSize.x/2, brick[i][j].position.y - brickSize.y/2, brickSize.x, brickSize.y, DARKGRAY);
+            for (int i = 0; i < LINES_OF_BRICKS; i++) {
+                for (int j = 0; j < BRICKS_PER_LINE; j++) {
+                    if (brick[i][j].active) {
+                        Color brickColor = ((i + j) % 2 == 0) ? DARKBLUE : PINK;
+                        DrawRectangle(brick[i][j].position.x - brickSize.x/2, brick[i][j].position.y - brickSize.y/2, brickSize.x, brickSize.y, brickColor);
                     }
                 }
             }
