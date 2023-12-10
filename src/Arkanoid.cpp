@@ -150,7 +150,7 @@ void Arkanoid::run()
         {
             DrawRectangle(player.position.x - player.size.x/2, player.position.y - player.size.y/2, player.size.x, player.size.y, BLACK);
             for (int i = 0; i < player.life; i++) DrawRectangle(20 + 40*i, screenHeight - 30, 35, 10, LIGHTGRAY);
-            DrawCircleV(ball.position, ball.radius, MAROON);
+            DrawCircleV(ball.position, ball.radius, ORANGE);
             for (int i = 0; i < LINES_OF_BRICKS; i++)
             {
                 for (int j = 0; j < BRICKS_PER_LINE; j++)

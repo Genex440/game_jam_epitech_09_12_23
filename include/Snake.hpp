@@ -52,4 +52,6 @@ class Snake {
         bool allowMove = false;
         Vector2 offset = { 0 };
         int counterTail = 0;
+        Image jean_eudes;
+        Texture2D jean_eudes_texture;
 };

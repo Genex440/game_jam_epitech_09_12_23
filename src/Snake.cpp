@@ -26,7 +26,7 @@ void Snake::init()
         snake[i].speed = (Vector2){ SQUARE_SIZE, 0 };
 
         if (i == 0) snake[i].color = DARKBLUE;
-        else snake[i].color = BLUE;
+        else snake[i].color = PINK;
     }
 
     for (int i = 0; i < SNAKE_LENGTH; i++)
@@ -37,6 +37,9 @@ void Snake::init()
     fruit.size = (Vector2){ SQUARE_SIZE, SQUARE_SIZE };
     fruit.color = SKYBLUE;
     fruit.active = false;
+    jean_eudes = LoadImage("assets/jean_eudes.png");
+    ImageResize(&jean_eudes, SQUARE_SIZE, SQUARE_SIZE);
+    jean_eudes_texture = LoadTextureFromImage(jean_eudes);
 }
 
 void Snake::run()
@@ -130,16 +133,8 @@ void Snake::run()
             ClearBackground(RAYWHITE);
             if (!gameOver)
             {
-                for (int i = 0; i < screenWidth/SQUARE_SIZE + 1; i++)
-                {
-                    DrawLineV((Vector2){SQUARE_SIZE*i + offset.x/2, offset.y/2}, (Vector2){SQUARE_SIZE*i + offset.x/2, screenHeight - offset.y/2}, LIGHTGRAY);
-                }
-                for (int i = 0; i < screenHeight/SQUARE_SIZE + 1; i++)
-                {
-                    DrawLineV((Vector2){offset.x/2, SQUARE_SIZE*i + offset.y/2}, (Vector2){screenWidth - offset.x/2, SQUARE_SIZE*i + offset.y/2}, LIGHTGRAY);
-                }
                 for (int i = 0; i < counterTail; i++) DrawRectangleV(snake[i].position, snake[i].size, snake[i].color);
-                DrawRectangleV(fruit.position, fruit.size, fruit.color);
+                DrawTexture(jean_eudes_texture, fruit.position.x, fruit.position.y, WHITE);
                 if (pause) DrawText("GAME PAUSED", screenWidth/2 - MeasureText("GAME PAUSED", 40)/2, screenHeight/2 - 40, 40, GRAY);
             }
             else DrawText("PRESS [ENTER] TO PLAY AGAIN", GetScreenWidth()/2 - MeasureText("PRESS [ENTER] TO PLAY AGAIN", 20)/2, GetScreenHeight()/2 - 50, 20, GRAY);
